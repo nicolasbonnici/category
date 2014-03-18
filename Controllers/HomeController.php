@@ -1,6 +1,6 @@
 <?php
 
-namespace modules\category\Controllers;
+namespace bundles\category\Controllers;
 
 /**
  * Description of Category HomeController
@@ -26,7 +26,7 @@ class HomeController extends \Library\Core\Auth {
     public function readAction()
     {
         if (isset($this->_params['idcategory']) && intval($this->_params['idcategory']) > 0) {
-               $oCategoryModel = new \modules\backend\Models\Category(intval($this->_params['idcategory']), $this->oUser);
+               $oCategoryModel = new \bundles\backend\Models\Category(intval($this->_params['idcategory']), $this->oUser);
                $oCategory = $oCategoryModel->read();
             if (! is_null($oCategory) && $oCategory->isLoaded()) {
                 $this->_view['oCategory'] = $oCategory;
@@ -39,7 +39,7 @@ class HomeController extends \Library\Core\Auth {
     public function updateAction()
     {
         if (isset($this->_params['idcategory']) && intval($this->_params['idcategory']) > 0) {
-               $oCategoryModel = new \modules\backend\Models\Category(intval($this->_params['idcategory']), $this->oUser);
+               $oCategoryModel = new \bundles\backend\Models\Category(intval($this->_params['idcategory']), $this->oUser);
             $oCategory = $oCategoryModel->getEntity();
             if (! is_null($oCategory) && $oCategory->isLoaded()) {
                 $this->_view['oCategory'] = $oCategory;
