@@ -19,12 +19,12 @@ class HomeController extends \Library\Core\Auth
 
     public function indexAction()
     {
-        $this->render('category/index.tpl');
+        $this->oView->render($this->aView, 'category/index.tpl');
     }
 
     public function createAction()
     {
-        $this->render('home/create.tpl');
+        $this->oView->render($this->aView, 'home/create.tpl');
     }
 
     public function readAction()
@@ -36,7 +36,7 @@ class HomeController extends \Library\Core\Auth
                 $this->aView['oCategory'] = $oCategory;
             }
         }
-        $this->render('home/read.tpl');
+        $this->oView->render($this->aView, 'home/read.tpl');
     }
 
     public function updateAction()
@@ -48,7 +48,7 @@ class HomeController extends \Library\Core\Auth
                 $this->aView['oCategory'] = $oCategory;
             }
         }
-        $this->render('home/update.tpl');
+        $this->oView->render($this->aView, 'home/update.tpl');
     }
 
     public function deleteAction()
@@ -56,7 +56,7 @@ class HomeController extends \Library\Core\Auth
         if (isset($this->aParams['pk']) && intval($this->aParams['pk']) > 0) {
             $this->aView['pk'] = $this->aParams['pk'];
         }
-        $this->render('home/delete.tpl');
+        $this->oView->render($this->aView, 'home/delete.tpl');
     }
 }
 
