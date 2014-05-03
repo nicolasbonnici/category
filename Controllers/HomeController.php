@@ -60,7 +60,3 @@ class HomeController extends \Library\Core\Auth
     }
 }
 
-class CategoryControllerException extends \Exception
-{
-}
-
