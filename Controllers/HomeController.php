@@ -1,5 +1,5 @@
 <?php
-namespace bundles\categorie\Controllers;
+namespace bundles\category\Controllers;
 
 /**
  * Category HomeController
@@ -19,7 +19,7 @@ class HomeController extends \Library\Core\Auth
 
     public function indexAction()
     {
-        $this->oView->render($this->aView, 'category/index.tpl');
+        $this->oView->render($this->aView, 'home/index.tpl');
     }
 
     public function createAction()
