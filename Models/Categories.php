@@ -18,6 +18,23 @@ class Categories extends \Library\Core\Crud
             parent::__construct('Todo', $iPrimaryKey, $oUser);
         }
     }
+
+    /**
+     * Retrieve all root categories with parent = 1
+     * @return \app\Entities\Collection\CategoryCollection
+     */
+    public function getRootCategories()
+    {
+        $oCategories = new \app\Entities\Collection\CategoryCollection();
+        try {
+            $oCategories->loadByParameters(
+                array(
+                    'category_idcategory' => 1
+                )
+            );
+        } catch (\Library\Core\EntityException $oEntityException) {}
+        return $oCategories;
+    }
 }
 
 class TodoModelException extends \Exception
