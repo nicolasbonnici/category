@@ -25,7 +25,7 @@ class HomeController extends \Library\Core\Auth
     public function createAction()
     {
         $oCategories = new \bundles\category\Models\Categories(null, $this->oUser);
-        $this->aView['oCategories'] = $oCategories->getRootCategories();
+        $this->aView['oCategories'] = $oCategories->get(array(1));
         $this->oView->render($this->aView, 'category/create.tpl');
     }
 
@@ -44,8 +44,8 @@ class HomeController extends \Library\Core\Auth
     public function updateAction()
     {
         if (isset($this->aParams['idcategory']) && intval($this->aParams['idcategory']) > 0) {
-            $oCategoryModel = new \bundles\category\Models\Category(intval($this->aParams['idcategory']), $this->oUser);
-            $categoryo = $oCategoryModel->getEntity();
+            $oCategoryModel = new \bundles\category\Models\Categories(intval($this->aParams['idcategory']), $this->oUser);
+            $oCategory = $oCategoryModel->getEntity();
             if (! is_null($oCategory) && $oCategory->isLoaded()) {
                 $this->aView['oCategory'] = $oCategory;
             }
@@ -59,6 +59,13 @@ class HomeController extends \Library\Core\Auth
             $this->aView['pk'] = $this->aParams['pk'];
         }
         $this->oView->render($this->aView, 'category/delete.tpl');
+    }
+
+    public function listAction()
+    {
+        $oCategories = new \bundles\category\Models\Categories(null, $this->oUser);
+        $this->aView['oEntities'] = $oCategories->get(array(1));
+        $this->oView->render($this->aView, 'category/list.tpl');
     }
 }
 

@@ -45,7 +45,7 @@
                 </button>
             </div>
 
-            <div id="categoryList" class="ui-loadable" data-entity="Category" data-view="category/list.tpl" data-orderby="idcategory" data-order="DESC" data-bundle="crud" data-controller="list" data-action="index">
+            <div id="categoryList" class="ui-loadable" data-entity="Category" data-orderby="idcategory" data-order="DESC" data-url="category/home/list">
             </div>
         </div>
     </div>

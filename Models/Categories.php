@@ -20,13 +20,15 @@ class Categories extends \Library\Core\Crud
     }
 
     /**
-     * Retrieve all root categories with parent = 1
+     * Retrieve all childs categories for a given categories scope
+     *
+     * @param integer $aCategoriesId
      * @return \app\Entities\Collection\CategoryCollection
      */
-    public function getRootCategories()
+    public function get(array $aCategorieId = array())
     {
-        $oCategories = new \app\Entities\Collection\CategoryCollection();
         try {
+            $oCategories = new \app\Entities\Collection\CategoryCollection();
             $oCategories->loadByParameters(
                 array(
                     'category_idcategory' => 1
